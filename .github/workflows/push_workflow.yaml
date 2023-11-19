@@ -9,33 +9,48 @@ jobs:
   push:
     name: push
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: récupération du répertoire
         uses: actions/checkout@v3
+
       - name: mise en place de java & maven
         uses: actions/setup-java@v3.13.0
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: 'maven'
-          github-token: ${{secrets.GITHUB_TOKEN}}
+
       - name: vérification de la version de maven
         run: mvn -v
+
       - name: mise en place de qemu
         uses: docker/setup-qemu-action@v3.0.0
+
       - name: mise en place de docker
         uses: docker/setup-buildx-action@v3.0.0
+
       - name: vérification de la version de docker
         run: docker version
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: paquetage du projet
         run: mvn package -Dpackaging=docker -Dmicronaut.aot.enabled=true
-      - name: affichage des images générées
-        run: docker images
+
+      - name: récupération image id
+        id: image-id
+        run: value="$(docker images --filter "landscape" --quiet)"
+
+      - name: création du tag
+        run: docker tag ${{ steps.image-id.output.value }} ghcr.io/${{ github.actor }}/landscape
+
       - name: envoi de l'image docker
-        run: docker image push --all-tags landscape
+        run: docker push --all-tags ghcr.io/${{ github.actor }}/landscape
