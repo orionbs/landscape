@@ -26,6 +26,6 @@ jobs:
       - name: vérification de la version de docker
         run: docker version
       - name: paquetage du projet
-        run: mvn package -Dpackaging=docker-native -Pgraalvm
+        run: mvn package -Dpackaging=docker -Dmicronaut.aot.enabled=true
       - name: affichage des images générées
         run: docker images
