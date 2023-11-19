@@ -21,11 +21,21 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
       - name: vérification de la version de maven
         run: mvn -v
+      - name: mise en place de qemu
+        uses: docker/setup-qemu-action@v3.0.0
       - name: mise en place de docker
         uses: docker/setup-buildx-action@v3.0.0
       - name: vérification de la version de docker
         run: docker version
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: paquetage du projet
         run: mvn package -Dpackaging=docker -Dmicronaut.aot.enabled=true
       - name: affichage des images générées
         run: docker images
+      - name: envoi de l'image docker
+        run: docker image push --all-tags landscape
