@@ -1,0 +1,22 @@
+name: action
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  push:
+    name: push
+    runs-on: ubuntu-latest
+    steps:
+      - name: récupération du répertoire dans l'environnement
+        uses: actions/checkout@v3
+      - name: ajout de docker dans l'environnement
+        uses: docker/setup-buildx-action@v3.0.0
+      - name: vérification de l'installation de docker
+        run: docker version
+      - name: paquetage du projet
+        run: ./mvnw package -Dpackaging=docker
+      - name: affichage des images générées
+        run: docker images
