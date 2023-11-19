@@ -17,6 +17,6 @@ jobs:
       - name: vérification de l'installation de docker
         run: docker version
       - name: paquetage du projet
-        run: ./mvnw package -Dpackaging=docker
+        run: sudo ./mvnw package -Dpackaging=docker
       - name: affichage des images générées
         run: docker images
