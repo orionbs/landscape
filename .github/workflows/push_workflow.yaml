@@ -47,7 +47,7 @@ jobs:
 
       - name: récupération image id
         id: image-id
-        run: value="$(docker images --filter "'IMAGE ID'=landscape" --quiet)"
+        run: value="$(docker images landscape --quiet)"
 
       - name: création du tag
         run: docker tag ${{ steps.image-id.output.value }} ghcr.io/${{ github.actor }}/landscape
