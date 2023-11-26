@@ -45,12 +45,8 @@ jobs:
       - name: paquetage du projet
         run: mvn package -Dpackaging=docker -Dmicronaut.aot.enabled=true
 
-      - name: récupération image id
-        id: image-id
-        run: value="$(docker images landscape --quiet)"
-
       - name: création du tag
-        run: docker tag ${{ steps.image-id.output.value }} ghcr.io/${{ github.actor }}/landscape
+        run: docker tag landscape ghcr.io/${{ github.actor }}/landscape
 
       - name: envoi de l'image docker
         run: docker push --all-tags ghcr.io/${{ github.actor }}/landscape
