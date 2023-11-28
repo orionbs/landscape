@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="shortcut icon" href="data:image/png;base64,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">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <link rel="shortcut icon"
+          href="data:image/png;base64,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">
     <title th:text="#{home.title}">Default title.</title>
 </head>
-<body class="h-screen bg-stone-50 dark:bg-stone-950">
+<body class="bg-stone-50 dark:bg-stone-950">
 <header class="fixed top-0 w-full h-max px-3 py-2 flex flex-row">
     <button class="w-max h-max p-1.5 rounded hover:bg-stone-100 dark:hover:bg-stone-900 group"
             type="button" id="menu">
@@ -20,17 +30,55 @@
         </svg>
     </button>
 </header>
-<main class="h-full container mx-auto py-12 box-border flex flex-col justify-center items-center gap-12">
+<main class="container mx-auto relative py-12 box-border flex flex-col justify-start items-center gap-12">
 
-    <div id="hero" class="max-w-5xl max-h-max relative box-border py-8 px-12">
-        <h1 class="max-w-full max-h-max relative box-border inline-block text-3xl md:text-4xl lg:text-5xl leading-normal font-bold text-justify text-stone-900 dark:text-stone-100"
-            th:text="#{home.motto}">
-            Default motto.
-        </h1>
-        <h2 class="max-w-max max-h-max relative box-border inline-block text-base md:text-lg lg:text-xl leading-normal font-normal text-justify text-stone-700 dark:text-stone-300"
-            th:text="#{home.motto.author}">
-            Default motto author.
+    <div id="hero"
+         class="w-full h-max relative box-border p-20 flex flex-col justify-center items-center gap-8">
+        <div id="quote"
+             class="w-full h-max relative box-border relative flex flex-col justify-center items-center gap-4">
+            <h1 class="w-full h-max relative box-border text-5xl leading-tight font-black text-left text-stone-950 dark:text-stone-50"
+                th:text="#{home.motto}">
+                Default motto.
+            </h1>
+            <h3 class="w-full h-max box-border relative text-lg leading-tight font-medium text-stone-700 dark:text-stone-300"
+                th:text="#{home.motto.author}">
+                Default motto author.
+            </h3>
+        </div>
+        <h2 class="w-full h-max relative box-border text-base leading-tight font-normal text-stone-600 dark:text-stone-400"
+            th:text="#{home.bio}">
+            Default bio.
         </h2>
+    </div>
+
+    <div id="blog" class="w-full h-max relative box-border px-8 flex flex-col gap-8">
+        <div id="blog_header" class="w-full h-max relative box-border flex flex-col gap-2">
+            <h2 class="w-full h-max relative box-border text-3xl leading-tight font-bold text-stone-900 dark:text-stone-100"
+                th:text="#{home.blog.title}">
+                Default blog title.
+            </h2>
+            <h4 class="w-full h-max relative box-border text-lg leading-tight font-normal text-stone-600 dark:text-stone-400"
+                th:text="#{home.blog.subtitle}">
+                Default blog subtitle.
+            </h4>
+        </div>
+        <div id="blog_posts_container" class="w-full h-max relative box-border grid grid-cols-3 gap-8">
+            <article id="blog_posts_item" class="w-full h-max relative box-border flex flex-col gap-5"
+                    th:each="blogPost : ${blogPostList}">
+                <h3 class="w-full h-max relative box-border text-lg leading-tight font-semibold text-stone-900 dark:text-stone-100"
+                    th:text="${blogPost.title}">
+                    Default blog post title.
+                </h3>
+                <p class="w-full h-max relative box-border text-sm leading-tight font-normal text-stone-600 dark:text-stone-400"
+                    th:text="${blogPost.synopsis}">
+                    Default blog post synopsis.
+                </p>
+                <time class="w-full h-max relative box-border text-xs leading-tight font-normal text-stone-500"
+                        th:text="${blogPost.writtenAt}">
+                    Default blog post time.
+                </time>
+            </article>
+        </div>
     </div>
 
 
